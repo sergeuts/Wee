@@ -13,7 +13,7 @@ class Users(models.Model):
     portfolio = models.TextField(blank=True, verbose_name="portfolio")
     presentation = models.TextField(blank=True, verbose_name="Presentation")
     education = models.TextField(blank=True, verbose_name="Education")
-    registration_date = models.DateTimeField(default=datetime.date.today, auto_now=True, verbose_name="Registration date")
+    registration_date = models.DateTimeField(default=datetime.date.today, verbose_name="Registration date")
     user_rights = models.ForeignKey('UserRights', on_delete=models.PROTECT, verbose_name="User rights")
     ratings = models.IntegerField(verbose_name="Ratings")
     web_site = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Web site")
@@ -37,8 +37,8 @@ class Projects(models.Model):
     description = models.TextField(blank=True, verbose_name="Description")
     is_active = models.BooleanField(default=True, verbose_name="Active")
     # in the development, in working
-    registration_date = models.DateTimeField(default=datetime.date.today, auto_now=True, verbose_name="Registration date")
-    end_date = models.DateTimeField(default=datetime.date.today, auto_now=True, verbose_name="Deadline (closing) date")
+    registration_date = models.DateTimeField(default=datetime.date.today, verbose_name="Registration date")
+    end_date = models.DateTimeField(default=datetime.date.today, verbose_name="Deadline (closing) date")
 
 
 class SkillsInProjects(models.Model):  # CompetenciesInProjects
