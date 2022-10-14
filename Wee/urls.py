@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app_projects_list.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='Wee-Deal projects'),
+    path('privacy_policy', privacy_policy, name='Privacy policy'),
+    path('cookie_policy', cookie_policy, name='Cookie policy'),
+    path('terms_of_service', terms_of_service, name='Terms of service'),
+    path('about_us', about_us, name='About us'),
 ]
