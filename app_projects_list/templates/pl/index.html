@@ -5,7 +5,7 @@
     {% for table in tables %}
         <ul> <h3> {{table.name}} </h3>
         {% for rec in table.recs %}
-            <li> <pre>{{rec.name}}</pre> </li>
+            <li> <pre>{{rec.id}}  </pre> <pre>{{rec.name}}</pre> </li>
         {% endfor %}
         </ul>
         <br> <hr> <br>
