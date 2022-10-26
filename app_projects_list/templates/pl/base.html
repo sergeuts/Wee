@@ -1,16 +1,54 @@
+<!-- {% load static %} -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<base>
     <meta charset="UTF-8">
-    <title>Wee</title>
+   <!--      <base href="/" target="_blank">  -->
+<!--     <link rel="stylesheet" type="text/html" href="main.css">  -->  <!-- "% static 'css/base.css' %" -->
+    <title>Whee-Launch</title>
+    <style> {% include  'pl/main.css' %} </style>
+     <!-- --------------------------------------------------------------------- -->
 </head>
 <body>
 
-{% block content %}
-{% endblock %}
+<div class="main_main">
+<header>
+    <nav>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="index.html">About us</a>
+            <a href="index.html">Projects</a>
+            <a href="index.html">FAQ</a>
+        </div>
+    </nav>
+    <div class="clear"></div>
+</header>
 
-{% block footer %}
-{% endblock %}
+<div class="main_window">
+    <nav class="filter">
+        <div>
+            {% block filter %}
+            {% endblock %}
+        </div>
+    </nav>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
 
+
+<footer>
+    <nav>
+        <div class="menu">
+            <a href="privacy_policy">Privacy policy</a>
+            <a href="cookie_policy">Cookie policy</a>
+            <a href="terms_of_service">Terms of service</a>
+        </div>
+        <div class="clear"></div>
+    </nav>
+</footer>
+</div>
 </body>
 </html>

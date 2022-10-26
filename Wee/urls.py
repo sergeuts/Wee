@@ -20,8 +20,12 @@ from app_projects_list.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='Wee-Deal projects'),
+    path('index', index, name='Wee-Deal projects'),
+    path('index2', index2, name='Wee-Deal projects'),
     path('privacy_policy', privacy_policy, name='Privacy policy'),
     path('cookie_policy', cookie_policy, name='Cookie policy'),
     path('terms_of_service', terms_of_service, name='Terms of service'),
+    path('main.css', main, name='main'),
     path('about_us', about_us, name='About us'),
+    path('select', select, name='Select'),
 ]

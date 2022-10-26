@@ -1,0 +1,81 @@
+.main_main {
+  background-color: #f5f9fc;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: baseline;
+}
+header {
+
+}
+.main_window {
+  background-color: #f5f9fc;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 90%;
+  margin: 20px 0 20px 0;
+  padding: 0;
+}
+.filter {
+    width: 30%;
+    overflow-y: scroll;
+}
+.content {
+    width: 70%;
+    overflow-y: scroll;
+}
+
+.proj_info {
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+body {
+  background-color: #f5f9fc;
+}
+nav {
+  margin: 0;
+  padding: 0;
+}
+.menu {
+  background-color: #f5f9fc;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: yellow;
+
+}
+.menu a {
+  float: left;
+  justify-content: left;
+  color: #5469d4;
+}
+.menu a:hover {
+  color: lime;
+}
+.menu a {
+  text-decoration: none;
+  padding: 0 100px;
+  margin: 0 0px;
+  flex: 1 1 auto;
+  float: left;
+  justify-content: space-around;
+  color: brown;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+}
+.clear {
+  clear: both;
+}

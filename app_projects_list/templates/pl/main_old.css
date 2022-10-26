@@ -1,0 +1,34 @@
+nav {
+  margin: 0;
+  padding: 0;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: yellow;
+  background-color: aquamarine;
+}
+.menu li {
+  float: left;
+  justify-content: space-around;
+}
+.menu li:hover {
+  background-color: lime;
+}
+.mn {
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 0 10px;
+  flex: 1 1 auto;
+  float: left;
+  justify-content: space-around;
+  color: brown;
+}
+.clear {
+  clear: both;
+}

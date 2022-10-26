@@ -1,0 +1,22 @@
+{% extends 'pl/base.html' %}
+
+{% block content %}
+    <br> <hr> <br>
+    {% for table in tables %}
+        <ul> <h3> {{table.name}} </h3>
+        {% for rec in table.recs %}
+            <li> <pre>{{rec.id}}  {{rec.name}}</pre> </li>
+        {% endfor %}
+        </ul>
+        <br> <hr> <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul>
+    {% for lk in links %}
+        <li><a href= {{lk.url}}> {{lk.name}} </a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
