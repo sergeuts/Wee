@@ -2,26 +2,52 @@ from django.shortcuts import render
 # from django.http import HttpResponse, HttpResponseNotFound, Http404
 from .models import *
 from .forms import *
+from app_projects_list.utils_db import get_table_values
+
 
 #import mimetypes
 #mimetypes.add_type("text/css", ".css", True)
+
 
 def select(request):
     from app_projects_list.utils_db import get_table_values
     print('Helo')
 
-def index(request):
-    from app_projects_list.utils_db import get_table_values
 
+def home(request):
+    fields = ['name', 'user', 'user.location', 'startup_stage', 'web_site', 'industry', 'your_skills',
+              'skills_you_are_looking', 'availability']
+    table = get_table_values(Projects, filter='', fields=fields)
+    return render(request, 'pl/home.html', {'table': narezka(table[:9], 3), 'layout': 'default'})
+
+
+def faq(request):
+    return render(request, 'pl/FAQ.html', {})
+
+
+def test(request):
+    return render(request, 'pl' + request.path + '.html', {})
+
+
+def projects(request):
     search_string = {}
+    layout = {'number_of_columns': 3, 'show_all_fields': False}
     if request.method == 'POST':
         form = FilterForm(request.POST)
         for field,value in request.POST.items():
+            if not value:
+                continue
             if field in ['name', 'web_site', 'description', 'your_skills', 'skills_you_are_looking', 'why_are_you_good',
-                         'description', 'your_skills', 'skills_you_are_looking',] and value:
+                         'description', 'your_skills', 'skills_you_are_looking', 'location']:
+                if field in ['location']:
+                    field = 'user__' + field
                 search_string[field + '__contains'] = value
-            elif field in ['startup_stage', 'industry', 'availability'] and value:
+            elif field in ['startup_stage', 'industry', 'availability']:
                 search_string[field] = value
+            elif field in ['show_all_fields']: # checkbox
+                layout[field] = True if form.data['show_all_fields'] == 'on' else False
+            elif field in ['number_of_columns']:
+                layout[field] = form.data['number_of_columns']
     # if form.is_valid():
         #     #print(form.cleaned_data)
         #     try:
@@ -32,10 +58,16 @@ def index(request):
     else:
         form = FilterForm()
     #recs = Projects.objects.all()
-    fields = ['name', 'user', 'user.location', 'startup_stage', 'web_site', 'industry', 'why_are_you_good', 'description', 'your_skills',
+    fields = ['name', 'user', 'user.location', 'startup_stage', 'web_site', 'industry', 'your_skills',
               'skills_you_are_looking', 'availability']
+    if layout['show_all_fields']:
+        fields.extend(['why_are_you_good', 'description'])
     table = get_table_values(Projects, filter=search_string, fields=fields)
-    return render(request, 'pl/index.html', {'table': table, 'quantity': len(table), 'form': form})
+    return render(request, 'pl/projects.html', {'table': narezka(table, int(layout['number_of_columns'])), 'quantity': len(table), 'form': form, 'layout': layout})
+
+
+def narezka(s, len1):
+    return [s[i: i+len1] for i in range(0, len(s), len1)]
 
 
 def index2(request):
@@ -77,3 +109,6 @@ def terms_of_service(request):
 
 def about_us(request):
     return render(request, 'pl/about_us.html')
+
+def login(request):
+    return render(request, 'pl/login.html')

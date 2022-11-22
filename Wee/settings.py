@@ -24,8 +24,9 @@ SECRET_KEY = 'django-insecure-tax-wsz5*^b^c&oel-nh+q-6m3fj8(#nzk8!_y4yf-0w129gk5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+#DEBUG = False
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['195.2.84.134', '127.0.0.1']
 
 
 # Application definition

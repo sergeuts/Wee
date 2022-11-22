@@ -2,53 +2,84 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<base>
+    <base>
     <meta charset="UTF-8">
    <!--      <base href="/" target="_blank">  -->
 <!--     <link rel="stylesheet" type="text/html" href="main.css">  -->  <!-- "% static 'css/base.css' %" -->
     <title>Whee-Launch</title>
     <style> {% include  'pl/main.css' %} </style>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
      <!-- --------------------------------------------------------------------- -->
 </head>
+
 <body>
 
-<div class="main_main">
 <header>
-    <nav>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="index.html">About us</a>
-            <a href="index.html">Projects</a>
-            <a href="index.html">FAQ</a>
-        </div>
+{#    <nav>#}
+{#        <ul class="menu">#}
+{#            <li><a class="wl_link" href="home"><div class="logo"> Whee <img src="static/icons/logo_star.png"> Launch</div></a></li>#}
+{#            <li><a class="wl_link" href="about_us"><div class="logo">About us</div></a></li>#}
+{#            <li><a class="wl_link" href="projects">Projects</a></li>#}
+{#            <li><a class="wl_link" href="FAQ">FAQ</a></li>#}
+{#            <li><a class="wl_link" href="login">Log In</a></li>#}
+{#        </ul>#}
+{#    </nav>#}
+
+    <nav class="menu" style="background-color: white">
+            <a class="menu_link" href="home"><div class="logo"> Whee <img src="static/icons/logo_star.png"> Launch</div></a>
+{#            <a class="menu_link" href="about_us">About us</a>#}
+            <a class="menu_link" href="people">People</a>
+            <a class="menu_link" href="projects">Projects</a>
+{#            <a class="menu_link" href="FAQ">FAQ</a>#}
+            <a class="menu_link" href="signin">Sign In</a>
+            <a class="menu_link" href="login">Log In</a>
     </nav>
-    <div class="clear"></div>
+
 </header>
 
-<div class="main_window">
-    <nav class="filter">
+<main>
+    <aside class="filter">
         <div>
             {% block filter %}
             {% endblock %}
         </div>
-    </nav>
+    </aside>
     <div class="content">
         {% block content %}
         {% endblock %}
     </div>
-</div>
+    <div class="clear"></div>
+    <div class="content_full">
+        {% block content_full %}
+        {% endblock %}
+    </div>
 
+</main>
 
 <footer>
+    <nav style="background-color: white">
+        <ul class="menu">
+            <li><div class="logo"> Whee <img src="static/icons/logo_star.png"> Launch</div></li>
+            <li><a href="privacy_policy">Privacy policy</a></li>
+            <li><a href="cookie_policy">Cookie policy</a></li>
+            <li><a href="terms_of_service">Terms of service</a></li>
+            <li><a href="trust_satety_security">Trust, satety, security</a></li>
+        </ul>
     <nav>
-        <div class="menu">
-            <a href="privacy_policy">Privacy policy</a>
-            <a href="cookie_policy">Cookie policy</a>
-            <a href="terms_of_service">Terms of service</a>
-        </div>
-        <div class="clear"></div>
-    </nav>
 </footer>
-</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="static/js/main.js"></script>
+    <style>.indicator-item .active {
+        font-size: 20px;
+        color: #0400BB;
+    background-color: #0400BB}
+    </style>
 </body>
 </html>

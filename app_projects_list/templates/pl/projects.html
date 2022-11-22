@@ -1,0 +1,94 @@
+{% extends 'pl/base.html' %}
+
+{% block filter %}
+
+    <form action="projects" method="post">
+        <p align="center" class="found_records"> <b > Found {{quantity}} records </b></p>
+        <p align="left"> </p>
+        {% csrf_token %}
+        <button type="submit" class="apply-button">Apply settings</button>
+        <div class="form-error">{{ form.non_field_errors }}</div>
+
+        {% for f in form %}
+
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}:</label></p><p> <div class="field-value">{{ f }}</div></p>
+            <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+
+
+{#        <p></p><br><hr><p> <b> Layout </b> </p>#}
+{#        <p><input type="number" value="{{  layout.number_of_columns }}" name="number_of_columns" maxlength="2" id="id_number_of_columns"></p>#}
+{#        <p><input type="checkbox" value="Show all fields" name="show_all_fields" style="alignment: left; width: 20px";"  id="id_show_all_fields">Show all fields</p>#}
+{#        <p> {{  layout.show_all_fields }} </p>#}
+    </form>
+
+{% endblock %}
+
+{% block content %}
+
+    {% for row in table %}
+        <div class="proj_row">
+            {% for r in row %}
+                <div class="proj_info" style="width: 45%">
+                    <span class="material-icons" title="Founder">face</span>
+                    <span class="field">{{ r.name }}</span><br>
+
+                    <span class="material-icons" title="Location">room</span>
+                    <span class="field">{{ r.user_location }}</span><br>
+
+                    <span class="material-icons" title="Startup stage">rebase_edit</span>
+                    <span class="field">{{ r.startup_stage }}</span><br>
+
+                    <span class="material-icons" title="Industry">handyman</span>
+                    <span class="field">{{ r.industry }}</span><br>
+
+                    {% if r.why_are_you_good %}
+                        <span class="material-icons" title="About founder">settings_accessibility</span>
+                        <span class="field">{{ r.why_are_you_good }}</span><br>
+                    {% endif %}
+
+                    {% if r.description %}
+                        <span class="material-icons" title="Description">subject</span>
+                        <span class="field">{{ r.description }}</span><br>
+                    {% endif %}
+
+                    <span class="material-icons" title="Founder skills">psychology</span>
+                    <span class="field">{{ r.your_skills }}</span><br>
+
+                    <span class="material-icons" title="Skills needed">search</span>
+                    <span class="field">{{ r.skills_you_are_looking }}</span><br>
+
+                    <span class="material-icons" title="Availability of founder">history</span>
+                    <span class="field">{{ r.availability }}</span><br>
+
+                    <span class="material-icons" title="Percentage in the company's share">monetization_on</span>
+                    <span class="field">5-15%</span><br>
+
+
+
+
+
+
+{#                    <span class="label">Founder:</span><span class="field">{{ r.name }}</span><br>#}
+{#                    <img class="icon" src="static/icons/location.png" title="Location"><span class="field">{{ r.user_location }}</span><br>#}
+{#                    <span class="label">Startup stage:</span>#}
+{#                    <img class="icon" src="static/icons/watch.png" title="Startup stage"><span class="field">{{ r.startup_stage }}</span><br>#}
+{#                    <span class="label">Web site:</span><span class="field">{{ r.web_site }}</span><br>#}
+{##}
+{#                    <img class="icon" src="static/icons/industry.png" title="Industry"><span class="field">{{ r.industry }}</span><br>#}
+{#                    {% if r.why_are_you_good %}#}
+{#                        <span class="label">About founder:</span><span class="field">{{ r.why_are_you_good }}</span><br>#}
+{#                    {% endif %}#}
+{#                    {% if r.description %}#}
+{#                        <span class="label">Description:</span><span class="field">{{ r.description }}</span><br>#}
+{#                    {% endif %}#}
+{#                    <img class="icon" src="static/icons/industry.png" title="Founder skills"><span class="field">{{ r.your_skills }}</span><br>#}
+{#                    <img class="icon" src="static/icons/lupa.png" title="Skills needed"><span class="field">{{ r.skills_you_are_looking }}</span><br>#}
+{#                    <img class="icon" src="static/icons/watch.png" title="Availability of founder"><span class="field">{{ r.availability }}</span><br>#}
+{#                    <img class="icon_banknote" src="static/icons/banknote.png" title="Percentage in the company's share"><span class="field">5-15%</span><br>#}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
+

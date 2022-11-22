@@ -1,10 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'pl/base.html' %}
 
-</body>
-</html>
+{% block content_full %}
+{#    <h1>Whee launch!</h1>#}
+{#    <p>Join a Great Project!</p>#}
+{#    <p>Become a part of successful project by finding like-minded people.</p>#}
+{#    <p>Invest in your future: become a co-founder, grow professionally and financially</p>#}
+{##}
+{#    <p>Find like-minded talents ready to join and work with you</p>#}
+{#    <p>Take your business idea to the next level by finding like-minded business partners ready to join your project for a sweat equity</p>#}
+{##}
+{##}
+{#Join our community#}
+{#Join a Project/ Find a business partner#}
+<div class="hp_first">
+    <img class="hp_first_img" src="static/images/8arms.png">
+{#    <img class="hp_first_img" src="static/images/tino.png">#}
+    <div class="hp_first_right carousel carousel-slider">
+    <div class="hp_first_right_1 carousel-item">
+        <div class="hp_first_txt">Find business venture partners</div>
+        <div class="hp_first_txt">ready to work with you for
+        <div class="hp_first_txt_se">sweat equity.</div></div>
+        <a href="#"> <div class="hp_btn"> Upload a project </div> </a>
+    </div>
+    <div class="hp_first_right_2 carousel-item">
+        <div class="hp_first_txt">Own a piece of a promising business venture with a high ROI.</div>
+        <div class="hp_first_txt"><b>Become an investor of a new venture with </b> <span class="hp_first_txt_se">0 capital invested.</span></div>
+        <a href="#"> <div class="hp_btn"> Find a business partner </div></a>
+    </div>
+    </div>
+</div>
+
+<div class="hp_proj">
+    <div class="hp_title">New posts</div>
+{#    {% include  'pl/google_icons.html' %}#}
+
+
+    {% for row in table %}
+        <div class="proj_row">
+            {% for r in row %}
+                <div class="proj_info">
+                <div>
+{#                    <div class="proj_img"><img src="static/proj/tat11_.png"></div>#}
+                    <div class="proj_img">
+{#                        <img src="static/proj/tat11.png" >#}
+                        <span class="material-icons" style="margin-top: -2%; padding-left: 75%; font-size: 50px; position: absolute; style="z-index: 100"" title="The icon is displayed in blue if you have placed it in favorites">turned_in</span>
+                    </div>
+                    <div class="proj_icons">
+                        <span class="material-icons" title="Shows how many users have put a like. If the color is blue, then you also like it. You can like it even if you don't plan to participate in the project personally.">thumb_up</span>
+                        <span>3</span>
+                        <span class="material-icons" title="How many users viewed, if the color is blue, then you have also viewed">visibility</span>
+                        <span>5</span>
+                    </div>
+
+                    {% if layout == 'full' %}
+                    <span class="material-icons" style="font-size: 16px; line-height: 24px; margin-bottom: 0; margin-top: 0;" title="Founder">face</span>
+                    <span class="field">{{ r.name }}</span><br>
+                    {% endif %}
+
+                    <span class="material-icons tooltipped" style="font-size: 16px; line-height: 24px; margin-bottom: 0; margin-top: 0;" data-position="bottom" data-tooltip="Industry">handyman</span>
+                    <span class="field">{{ r.industry }}</span><br>
+  
+                    <span class="material-icons" style="font-size: 16px; line-height: 24px; margin-bottom: 0; margin-top: 0; vertical-align: center; height: 100%;" title="Startup stage">rebase_edit</span>
+                    <span class="field">{{ r.startup_stage }}</span><br>
+
+                    {% if layout == 'full' %}
+                    <span class="material-icons" title="Founder skills">psychology</span>
+                    <span class="field">{{ r.your_skills }}</span><br>
+                    {% endif %}
+
+                    <span class="material-icons" style="font-size: 16px; line-height: 24px; margin-bottom: 0; margin-top: 0;" title="Skills needed">search</span>
+                    <span class="field">{{ r.skills_you_are_looking }}</span><br>
+
+
+                    <span class="material-icons" style="font-size: 16px; line-height: 24px; margin-bottom: 0; margin-top: 0;" title="Location">room</span>
+                    <span class="field_color_blue">{{ r.user_location }}</span><br>
+
+
+
+                    {% if r.why_are_you_good %}
+                        <span class="label">About founder:</span>
+                        <span class="material-icons" title="About founder">settings_accessibility</span>
+                        <span class="field">{{ r.why_are_you_good }}</span><br>
+                    {% endif %}
+
+                    {% if r.description %}
+                        <span class="label">Description:</span>
+                        <span class="material-icons" title="Description">subject</span>
+                        <span class="field">{{ r.description }}</span><br>
+                    {% endif %}
+
+                    {% if layout == 'full' %}
+                    <span class="material-icons" style="font-size: 16px; line-height: 24px; margin-bottom: 0; margin-top: 0;" title="Availability of founder">history</span>
+                    <span class="field">{{ r.availability }}</span><br>
+                    {% endif %}
+
+                    <span class="material-icons" style="font-size: 16px; line-height: 24px; margin-bottom: 0; margin-top: 0;" title="Percentage in the company's share">monetization_on</span>
+                    <span class="field_color_blue_bold">Equity offered:</span>
+                    <span class="field_bold">5-15%</span><br>
+                </div>
+                    <a href="#"> <div class="hp_btn"> Business venture </div></a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="hp_article">
+    <div class="hp_title">Why joining the sweat equity economy? </div>
+    <div>What our communitiy members say about their experience and success as a result of the sweat equity cooperation</div>
+    <div>Angel        USA, Florida</div>
+    <div> Co-founder “Rollor” </div>
+    <div> Co-founding helpes mitigate risk for investors </div>
+    <div> Having a company and investment rely on a single founder flags numerous potential issues for investors. Since there is no co-founder to fall back on if something happens to the individual, it hightens the risk of their investment </div>
+</div>
+
+
+<div class="hp_synergy">
+    <img src="static/images/rocket.png">
+    <div>
+    <div class="hp_title"> Synergy is a power! </div>
+    <div>If you have your business venture - describe it here and find <br>
+        co-founders/LLC partners that are willing to go through the thicks <br>
+        and thins with you in exchange of Sweat Equity.</div>
+    <div class="hp_btn"> Find a co-founder </div>
+    </div>
+</div>
+
+<div class="hp_tools">
+    <div class="hp_title"> Tips and tools for  Founders and LLC partners/Co-Founders </div>
+    <div> Learn how to manage the venture efficiently and bring it to the success </div>
+    <div> <b>Sweat Equity Agreement</b> </div>
+    <div> A list of services that can help you with prototyping, manufacturing, packaging, shipping, and more.</div>
+    <div class="hp_btn"> Read more </div>
+</div>
+
+<div class="hp_team">
+
+</div>
+
+
+<div class="hp_cofee">
+
+</div>
+
+{% endblock %}
